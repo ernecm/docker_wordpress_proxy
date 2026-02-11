@@ -14,9 +14,14 @@ HTTP-Echo: Servicio que devuelve un texto de bienvenida.
 
 Estructura del proyecto:
 
-cortafuegos.sh: Configura ufw para que solo sean visibles los puertos 22, 80 y 7878. 
-deploy.sh: Script que crea redes, volúmenes y levanta los contenedores.
-borrar_todo.sh: Script que borra contenedores, redes y volúmenes.
-borrar_con_persistencia.sh: Script que borra solo contenedores y redes 
-default.conf: Configuración de Nginx como proxy inverso.
-compose.yaml`: Traducción de la infraestructura a formato YAML.
+-cortafuegos.sh: Configura ufw para que solo sean visibles los puertos 22, 80 y 7878. 
+
+-deploy.sh: Script que crea redes, volúmenes y levanta los contenedores.
+
+-borrar_todo.sh: Script que borra contenedores, redes y volúmenes.
+
+-borrar_con_persistencia.sh: Script que borra solo contenedores y redes 
+
+-default.conf: Configuración de Nginx como proxy inverso.
+
+-compose.yaml`: Traducción de la infraestructura a formato YAML.
