@@ -22,6 +22,6 @@ Estructura del proyecto:
 
 -borrar_con_persistencia.sh: Script que borra solo contenedores y redes 
 
--default.conf: Configuración de Nginx como proxy inverso.
+-default.conf: Configuración de Nginx como proxy inverso (Este no se ejecuta).
 
 -compose.yaml`: Traducción de la infraestructura a formato YAML.
