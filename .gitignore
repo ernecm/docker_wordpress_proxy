@@ -1,5 +1,3 @@
-# Ignorar bases de datos locales si las hubiera
 *.sql
 *.db
-# Ignorar carpetas de datos de Docker (si usas rutas locales en lugar de volúmenes)
 data/
