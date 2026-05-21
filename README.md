@@ -1,4 +1,4 @@
-# This repository contains a containerized infrastructure using Docker, featuring WordPress, MariaDB, an HTTP echo service, and an Nginx reverse proxy. The environment is secured with a strict `iptables` firewall setup.
+**This repository contains a containerized infrastructure using Docker, featuring WordPress, MariaDB, an HTTP echo service, and an Nginx reverse proxy. The environment is secured with `iptables` firewall setup.**
 
 ## 🏗 Architecture & Networking
 
