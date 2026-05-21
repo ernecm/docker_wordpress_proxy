@@ -14,12 +14,19 @@ State is maintained across reboots using dedicated Docker volumes:
 ## 📁 Project Structure
 
 `compose.yaml`: Docker Compose configuration file for declarative deployment.
+
 `deploy.sh`: Bash script to deploy the environment using standalone `docker run` commands.
+
 `cleanup.sh`: Script to stop and remove containers and networks, preserving data volumes.
+
 `purge.sh`: Script to completely destroy the environment, including persistent volumes, for a fresh start.
+
 `firewall.sh`: Bash script configuring `iptables` to secure the host.
+
 `default.conf`: Nginx reverse proxy configuration routing traffic to the appropriate containers.
+
 `.env`: Environment variables for database credentials.
+
 `.gitignore`: Ensures sensitive files like `.env` are not committed to version control.
 
 ## 🚀 Getting Started
