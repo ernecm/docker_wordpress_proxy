@@ -1,10 +1,19 @@
 #!/bin/bash
 
-#volumenes
+if [ -f .env ]; then
+    set -a         
+    source .env
+    set +a
+else
+    echo ".env file not found!"
+    exit 1
+fi
+
+#volumes
 docker volume create db_data
 docker volume create wp_data
 
-#red
+#networks
 docker network create backend-net
 docker network create frontend-net
 
@@ -13,10 +22,10 @@ docker run -d --name db \
     --restart always \
     --network backend-net \
     -v db_data:/var/lib/mysql \
-    -e MYSQL_ROOT_PASSWORD=somewordpress \
-    -e MYSQL_DATABASE=wordpress \
-    -e MYSQL_USER=wordpress \
-    -e MYSQL_PASSWORD=wordpress \
+    -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD \
+    -e MYSQL_DATABASE=$MYSQL_DATABASE \
+    -e MYSQL_USER=$MYSQL_USER \
+    -e MYSQL_PASSWORD=$MYSQL_PASSWORD \
     mariadb:latest
 
 #Wordpress
@@ -26,9 +35,9 @@ docker run -d --name wordpress \
     --network frontend-net \
     -v wp_data:/var/www/html \
     -e WORDPRESS_DB_HOST=db\
-    -e WORDPRESS_DB_USER=wordpress \
-    -e WORDPRESS_DB_PASSWORD=wordpress \
-    -e WORDPRESS_DB_NAME=wordpress \
+    -e WORDPRESS_DB_USER=$MYSQL_USER \
+    -e WORDPRESS_DB_PASSWORD=$MYSQL_PASSWORD \
+    -e WORDPRESS_DB_NAME=$MYSQL_DATABASE \
     wordpress:latest
 
 #http-echo

@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Eliminando todo el entorno..."
+echo "Removing the entire environment..."
 echo ""
 #deteniendo contenedores
 docker stop nginx http-echo wordpress db
@@ -10,4 +10,4 @@ docker network rm backend-net frontend-net
 #eliminando volumenes
 docker volume rm db_data wp_data
 echo ""
-echo "Todo ha sido eliminado"
+echo "Finished"
