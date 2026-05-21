@@ -71,6 +71,7 @@ sudo ./firewall.sh
 ### 🌐 Accessing the Services
 Once deployed and with the firewall active, you can access the services from your local host machine:
 **WordPress**: Navigate to http://192.168.99.10.
+
 **HTTP-Echo**: Navigate to http://192.168.99.10:7878 to see the "Bienvenido" message.
 
 ### 🧹 Lifecycle Management
