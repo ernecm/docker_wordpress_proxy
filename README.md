@@ -29,14 +29,34 @@ State is maintained across reboots using dedicated Docker volumes:
 
 `.gitignore`: Ensures sensitive files like `.env` are not committed to version control.
 
-## 🚀 Getting Started
-
 ### 1. Prerequisites
 Ensure the host machine (virtual server) has the following installed:
 Docker
 `iptables-persistent` (for saving firewall rules across reboots)
 
-### 2. Environment Configuration
+### 2. Prerequisites & Network Setup
+
+To ensure proper routing for the Nginx Reverse Proxy and WordPress services, the host virtual machine was configured with a dual network interface using Netplan:
+
+- **Host-Only / Static (`enp0s3`):** Assigned `192.168.99.10/24` for stable local routing.
+- **NAT / DHCP (`enp0s8`):** Provides Internet connectivity for package updates and Docker image pulls.
+
+<details>
+<summary>Click to view <code>/etc/netplan/50-cloud-init.yaml</code> configuration</summary>
+
+```yaml
+network:
+  version: 2
+  ethernets:
+    enp0s3:
+      dhcp4: no
+      addresses:
+        - 192.168.99.10/24
+    enp0s8:
+      dhcp4: true
+```
+
+### 3. Environment Configuration
 Create a `.env` file in the root directory of the project with your database credentials:
 
 ```env
@@ -45,7 +65,7 @@ MYSQL_DATABASE=example
 MYSQL_USER=example
 MYSQL_PASSWORD=example
 ```
-### 3. Deployment
+### 4. Deployment
 You can deploy the infrastructure using one of two methods:
 - **Method A**: Using Docker Compose
 ```Bash
@@ -56,7 +76,7 @@ docker compose up -d
 chmod +x deploy.sh
 ./deploy.sh
 ```
-### 4. Firewall & Security
+### 5. Firewall & Security
 The server is secured using iptables with a default DROP policy. Only strictly necessary traffic is permitted:
 
 **Port 22:** SSH Access.
