@@ -55,7 +55,7 @@ network:
     enp0s8:
       dhcp4: true
 ```
-<details>
+</details>
 
 ### 3. Environment Configuration
 Create a `.env` file in the root directory of the project with your database credentials:
