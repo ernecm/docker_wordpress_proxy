@@ -34,7 +34,7 @@ Ensure the host machine (virtual server) has the following installed:
 Docker
 `iptables-persistent` (for saving firewall rules across reboots)
 
-### 2. Prerequisites & Network Setup
+### 2. Network Setup
 
 To ensure proper routing for the Nginx Reverse Proxy and WordPress services, the host virtual machine was configured with a dual network interface using Netplan:
 
@@ -55,6 +55,7 @@ network:
     enp0s8:
       dhcp4: true
 ```
+<details>
 
 ### 3. Environment Configuration
 Create a `.env` file in the root directory of the project with your database credentials:
